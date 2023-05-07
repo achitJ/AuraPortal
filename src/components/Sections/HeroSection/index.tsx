@@ -8,12 +8,12 @@ import {
     ThemeIcon,
 } from "@mantine/core";
 import { useStyles } from "./styles";
-import heroAreaSvg from "../../../public/images/hero-area.svg";
+import heroAreaSvg from "../../../../public/images/hero-area.svg";
 import Image from "next/image";
 
 
 export default function HeroSection() {
-    const { classes } = useStyles();
+    const { classes, cx } = useStyles();
 
     return (
         <>
@@ -22,7 +22,7 @@ export default function HeroSection() {
                     <Title className={classes.title}>
                         Your Stars determine your life&#39;s journey
                     </Title>
-                    <Text color="dimmed" mt="md">
+                    <Text color="dimmed" mt="md" className={classes.content}>
                         Get solutions to your love, career, business, health, and other life problems, as well as future opportunities and posibilities.
                     </Text>
 
@@ -33,7 +33,7 @@ export default function HeroSection() {
                     </Group>
                 </div>
                 <div className={classes.imageContainer}>
-                    <Image className={classes.image} src={heroAreaSvg} alt="heroArea" />
+                    <Image className={cx(classes.image, 'selector')} src={heroAreaSvg} alt="heroArea" />
                 </div>
             </Container>
         </>

@@ -24,6 +24,14 @@ export default function App({ Component, pageProps }: AppProps) {
           },
           '.container-mt': {
             marginTop: "92px",
+          },
+          '.selector': {
+            userDrag: 'none',
+            userSelect: 'none',
+            WebkitUserDrag: 'none',
+            WebkitUserSelect: 'none',
+            MozUserDrag: 'none',
+            MozUserSelect: 'none',
           }
         })
       }}  

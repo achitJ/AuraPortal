@@ -1,20 +1,32 @@
 import CanvasConstellation from "@/components/CanvasConstellation"
 import Script from "next/script"
-import HeroSection from "@/components/HeroSection"
+import HeroSection from "@/components/Sections/HeroSection"
+import { getAllServices } from "@/api/sanity/service"
+import { IHomeProps } from "@/types/props"
+import ServicesSection from "@/components/Sections/ServicesSection"
 
-export default function Home() {
+export async function getStaticProps() {
+  const services = await getAllServices()
+
+  return {
+    props: {
+      services,
+    },
+  }
+}
+
+export default function Home({ services } : IHomeProps) {
+
   return (
     <>
       <Script 
         src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js" 
-        // crossOrigin="anonymous" 
-        // integrity="sha512-+ab24sSOgbciah+hyqPk/XqGOooAInsofud5JB4AdrRfahahDA/WWnnm6dS/bl7UmN8RW8ZGp85EoWU/aFTUhA=="
         strategy="beforeInteractive"
       />
       <Script src="/scripts/canvas.js"/>
-      {/*TODO: Add Canvas*/}
       <CanvasConstellation/>
       <HeroSection/>
+      <ServicesSection services={services}/>
     </>
   )
 }

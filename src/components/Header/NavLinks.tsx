@@ -13,8 +13,12 @@ export default function NavLinks() {
     });
 
     return (
-        <Group spacing={0} className={classes.links}>
+        // <Group spacing={0} className={classes.links}>
+        //     {items}
+        // </Group>
+
+        <>
             {items}
-        </Group>
+        </>
     )
 };

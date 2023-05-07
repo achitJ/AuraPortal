@@ -15,7 +15,9 @@ export default function HeaderMiddle() {
       <Container className={classes.inner}>
         <Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} />
         
-        <NavLinks/>
+        <Group spacing={0} className={classes.links}>
+          <NavLinks/>
+        </Group>
 
         <Link href="/">
           <Image src="/images/logo.svg" width={137.5} height={50} alt="logo" priority/>

@@ -223,8 +223,6 @@ if (!window.requestAnimationFrame) {
 		});
 	};
 
-	console.log('Constellation plugin loaded');
-
 })($, window);
 
 // Init plugin
