@@ -1,4 +1,5 @@
 export interface IStore {
-    path: string;
-    setPath: (path: string) => void;
+    burger: boolean;
+    toggleBurger: () => void;
+    setBurger: (burger: boolean) => void;
 };

@@ -7,13 +7,6 @@ import { useRouter } from 'next/router';
 import { useStore } from '@/utils/stores/store';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  const setPath = useStore((state) => state.setPath);
-
-  useEffect(() => {
-    setPath(router.pathname);
-  }, []);
-
   return (
     <MantineProvider
       theme={{
