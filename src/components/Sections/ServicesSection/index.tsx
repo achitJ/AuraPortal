@@ -9,7 +9,7 @@ export default function ServicesSection({ services } : IHomeProps) {
     
     return (
         <>
-            <Container size="xl" className={classes.cards}>
+            <Container size="xl" className={classes.cards} mt={40}>
                 {services.map((service : IService) => {
                     return (
                         <Service 

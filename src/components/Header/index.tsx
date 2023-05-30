@@ -3,6 +3,7 @@ import {
 	Group,
 	ActionIcon,
 	Container,
+	Text,
 	Burger,
 	Transition,
 } from '@mantine/core'
@@ -10,7 +11,7 @@ import { useStyles } from './styles'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useDisclosure } from '@mantine/hooks'
-import { InstagramIcon, YoutubeIcon } from './icons'
+import { InstagramIcon, YoutubeIcon, PhoneIcon } from './icons'
 import NavLinks from './NavLinks'
 import { useStore } from '@/utils/stores/store'
 
@@ -38,10 +39,6 @@ export default function HeaderMiddle() {
 					)}
 				</Transition>
 
-				<Group spacing={0} className={classes.links}>
-					<NavLinks />
-				</Group>
-
 				<Link href="/">
 					<Image
 						src="/images/logo.svg"
@@ -52,18 +49,8 @@ export default function HeaderMiddle() {
 					/>
 				</Link>
 
-				<Group
-					spacing={0}
-					className={classes.social}
-					position="right"
-					noWrap
-				>
-					<ActionIcon size="lg">
-						<InstagramIcon />
-					</ActionIcon>
-					<ActionIcon size="lg">
-						<YoutubeIcon />
-					</ActionIcon>
+				<Group spacing={0} className={classes.links}>
+					<NavLinks />
 				</Group>
 			</Container>
 		</Header>

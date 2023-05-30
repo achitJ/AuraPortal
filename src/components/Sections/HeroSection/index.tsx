@@ -27,13 +27,17 @@ export default function HeroSection() {
                     </Text>
 
                     <Group mt={30}>
-                        <Button radius="xl" size="md" className={classes.control}>
-                            Services Offered
+                        <Button radius="xl" size="md" color="grape" className={classes.control}>
+                            Know Your Horoscope
                         </Button>
                     </Group>
                 </div>
                 <div className={classes.imageContainer}>
-                    <Image className={cx(classes.image, 'selector')} src={heroAreaSvg} alt="heroArea" />
+                    <Image 
+                        className={cx(classes.image, 'selector')} 
+                        src={heroAreaSvg} alt="heroArea" 
+                        priority={true}
+                    />
                 </div>
             </Container>
         </>

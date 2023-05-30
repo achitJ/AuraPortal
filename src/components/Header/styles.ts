@@ -2,11 +2,9 @@ import { createStyles, rem } from '@mantine/core'
 
 export const useStyles = createStyles((theme) => ({
 	header: {
-		// borderRadius: '0 0 10px 10px',
 		position: 'fixed',
 		top: 0,
 		left: 0,
-		// right: 10,
 		zIndex: 1,
 	},
 
@@ -56,8 +54,6 @@ export const useStyles = createStyles((theme) => ({
 		borderTopLeftRadius: 0,
 		borderTopWidth: 0,
 		overflow: 'hidden',
-		// height: '100vh',
-		// width: '70vw',
 		backgroundColor: "white",
 
 	

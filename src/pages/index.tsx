@@ -2,9 +2,10 @@ import CanvasConstellation from "@/components/CanvasConstellation"
 import Script from "next/script"
 import Head from "next/head"
 import HeroSection from "@/components/Sections/HeroSection"
-import { getAllServices } from "@/api/sanity/service"
+import { getAllServices } from "@/backend-services/sanity/service"
 import { IHomeProps } from "@/types/props"
 import ServicesSection from "@/components/Sections/ServicesSection"
+import ContactMeSection from "@/components/Sections/ContactMeSection"
 
 export async function getStaticProps() {
   const services = await getAllServices()
@@ -30,6 +31,7 @@ export default function Home({ services } : IHomeProps) {
       {/* <Script src="/scripts/canvas.js"/> */}
       <CanvasConstellation/>
       <HeroSection/>
+      <ContactMeSection/>
       <ServicesSection services={services}/>
     </>
   )
