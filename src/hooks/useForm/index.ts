@@ -158,7 +158,7 @@ export default function useForm<T extends object>({
 
     };
 
-    const getValues = () => {
+    const getValues = () : T => {
         const values = 
             (Object.keys(state) as string[])
             .reduce((acc: T, key: string) => {

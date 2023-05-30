@@ -16,6 +16,8 @@ import { useStyles } from './styles';
 import React from 'react';
 import { IContactForm } from '@/types/misc';
 import useForm from '@/hooks/useForm';
+import { sendFormDataToTelegram } from '@/api/telegram';
+import { notifications } from '@mantine/notifications';
 
 
 
@@ -51,11 +53,33 @@ export default function GetInTouch() {
         },
     });
 
+    
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         form.validateAll();
         if(form.isValid()) {
-            console.log(JSON.stringify(form.getValues()));
+            sendFormDataToTelegram(form.getValues())
+            .then((data) => {
+                if(data.message === "OK") {
+                    notifications.show({
+                        title: 'Message Sent',
+                        message: 'Your message has been sent successfully',
+                        color: 'teal',
+                        icon: null,
+                        autoClose: 1000,
+                    })
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+                notifications.show({
+                    title: 'Error Sending Message',
+                    message: 'Please try again later',
+                    color: 'red',
+                    icon: null,
+                    autoClose: 2000,
+                })
+            });
             form.resetAll();
         }
     }

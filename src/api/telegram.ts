@@ -1,6 +1,6 @@
 import { IContactForm } from "@/types/misc";
 
-export default async function sendDataToTelegram(data: IContactForm) {
+export async function sendFormDataToTelegram(data: IContactForm) {
     const dataToSend = JSON.stringify(data);
     const res = await fetch('/api/telegram-form', {
         method: 'POST',
@@ -11,7 +11,7 @@ export default async function sendDataToTelegram(data: IContactForm) {
     });
 
     if (res.status !== 200) {
-        throw new Error('Failed to fetch data');
+        return new Error('Failed to fetch data');
     }
 
     return res.json();
