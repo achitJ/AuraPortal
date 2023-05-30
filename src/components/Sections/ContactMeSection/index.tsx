@@ -55,7 +55,7 @@ export default function GetInTouch() {
         event.preventDefault();
         form.validateAll();
         if(form.isValid()) {
-            console.log(form.getValues());
+            console.log(JSON.stringify(form.getValues()));
             form.resetAll();
         }
     }

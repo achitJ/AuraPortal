@@ -55,8 +55,6 @@ export default function useForm<T extends object>({
     };
 
     const resetAll = () => {
-        console.log("resetAll");
-
         (Object.keys(state) as string[])
         .forEach((key: string) => {
             resetField(key as keyof T);
