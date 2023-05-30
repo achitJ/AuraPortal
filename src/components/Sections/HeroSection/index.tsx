@@ -37,6 +37,8 @@ export default function HeroSection() {
                         className={cx(classes.image, 'selector')} 
                         src={heroAreaSvg} alt="heroArea" 
                         priority={true}
+                        placeholder="empty"
+						blurDataURL={'/img/hero-area.svg'}
                     />
                 </div>
             </Container>
