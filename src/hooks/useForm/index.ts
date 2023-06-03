@@ -1,51 +1,27 @@
 import { DateValue } from "@mantine/dates";
 import { Reducer, useReducer } from "react";
 import { IStateValues, IFormArgs, IDispatchArgs } from "@/types/hooks/useForm";
+import { getReducer } from "./reducer";
+import { 
+    getStateValues, 
+    callAllFields, 
+    getNextState, 
+    checkAllFields, 
+    getInputValue, 
+    getOnChange 
+} from "./utils";
 
 export default function useForm<T extends object>({ 
     initialValues,
     validate
 }: IFormArgs<T>) {
     const values: T = initialValues;    
-    const reducer: Reducer<IStateValues<T>, IDispatchArgs<T>> = (
-            state, 
-            { field, value, error, type }
-        ) => {
-        switch (type) {
-            case "UPDATE":
-                return {
-                    ...state,
-                    [field]: {
-                        value: value as T[keyof T],
-                        error: null
-                    }
-                };
-            case "VALIDATE":
-                return {
-                    ...state,
-                    [field]: {
-                        value: state[field as string].value,
-                        error: error as string
-                    }
-                };
-            default:
-                return state;
-        }
-    };
-
-    const stateValues = 
-        (Object.keys(values) as string[]) // Get keys of object as array of strings
-        .reduce((acc: IStateValues<T>, key: string) => {
-            acc[key] = {
-                value: values[key as keyof T],
-                error: null
-            }
-            return acc;
-        }, {} as IStateValues<T>);
+    const reducer: Reducer<IStateValues<T>, IDispatchArgs<T>> = getReducer<T>();
+    const stateValues: IStateValues<T> = getStateValues<T>(values);
 
     const [state, dispatch] = useReducer(reducer, stateValues);
 
-    const resetField = (field: keyof T) => {
+    function resetField(field: keyof T): void {
         dispatch({
             field,
             value: initialValues[field],
@@ -54,19 +30,11 @@ export default function useForm<T extends object>({
         });
     };
 
-    const resetAll = () => {
-        (Object.keys(state) as string[])
-        .forEach((key: string) => {
-            resetField(key as keyof T);
-        });
-    };
+    const resetAll = callAllFields<T>(resetField, state);
 
-
-    const validateField = (field: keyof T) => {
+    function validateField (field: keyof T): void {
         const value = state[field as string].value;
         const error = validate[field](value);
-
-        // console.log("validateField", {field, value, error})
 
         if(error !== null) {
             dispatch({
@@ -78,82 +46,23 @@ export default function useForm<T extends object>({
         }
     };
 
-    const validateAll = () => {
-        (Object.keys(state) as string[])
-        .forEach((key: string) => {
-            validateField(key as keyof T);
-        });
-    };
+    const validateAll = callAllFields<T>(validateField, state);
 
-    const isValid = () => {
-        const nextState = 
-            (Object.keys(state) as string[])
-            .reduce((acc: IStateValues<T>, key: string) => {
-                const value = state[key].value;
-                const error = validate[key as keyof T](value);
-                const currState = reducer(state, {
-                    field: key as keyof T,
-                    value,
-                    error,
-                    type: "VALIDATE"
-                });
-
-
-                acc[key] = currState[key as keyof IStateValues<T>];
-
-                return acc;
-            }, {} as IStateValues<T>);
-
-        const isValid: boolean = 
-            (Object.keys(nextState) as string[])
-            .every((key: string) => {
-                return nextState[key as any].error === null;
-            });
+    function isValid(): boolean {
+        const nextState: IStateValues<T> = getNextState<T>(reducer, state, validate);
+        const isValid: boolean = checkAllFields<T>(nextState);
         
         return isValid;
     };
 
-    const getInputProps = (field: keyof T) => {
-        const getValue = (field: keyof T) => {
-            const value = state[field as string].value;
-
-            if(value instanceof Date) {
-                return value as DateValue;
-            }
-
-            return value as string;
-        };
-
-        const value: any = getValue(field);
-        const error = state[field as string].error;
+    function getInputProps(field: keyof T) {
+        const value: string | DateValue = getInputValue(field, state);
+        const error: string | null = state[field as string].error;
 
         return {
             value,
             error,
-            onChange: (e: React.ChangeEvent<unknown> | DateValue | undefined) => {
-                if (e !== null &&typeof e === 'object' && 'nativeEvent' in e) {
-                    const { currentTarget } = e;
-                    if(
-                        currentTarget instanceof HTMLInputElement ||
-                        currentTarget instanceof HTMLTextAreaElement ||
-                        currentTarget instanceof HTMLSelectElement
-                    ) {
-                        dispatch({
-                            field,
-                            value: currentTarget.value as T[keyof T],
-                            error: null,
-                            type: "UPDATE"
-                        });
-                    }
-                } else {
-                    dispatch({
-                        field,
-                        value: e as T[keyof T],
-                        error: null,
-                        type: "UPDATE"
-                    });
-                }
-            } 
+            onChange: getOnChange<T>(dispatch, field)
         };
 
     };
