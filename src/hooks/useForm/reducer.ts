@@ -1,5 +1,5 @@
 import { Reducer } from "react";
-import { IStateValues, IFormArgs, IDispatchArgs } from "@/types/hooks/useForm";
+import { IStateValues, IDispatchArgs } from "@/types/hooks/useForm";
 
 export function getReducer<T extends Object>() : any {
     const reducer: Reducer<IStateValues<T>, IDispatchArgs<T>> = (

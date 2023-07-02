@@ -1,9 +1,7 @@
 import {
 	Header,
 	Group,
-	ActionIcon,
 	Container,
-	Text,
 	Burger,
 	Transition,
 } from '@mantine/core'

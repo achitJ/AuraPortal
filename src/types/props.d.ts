@@ -12,3 +12,13 @@ export interface IBaseLayoutProps {
 export interface IHomeProps {
     services: IService[];
 }
+
+export interface IContactIconProps {
+	icon: React.FC<any>;
+	title: React.ReactNode;
+	description: React.ReactNode;
+}
+
+interface IContactIconsListProps {
+    data?: IContactIconProps[];
+}

@@ -53,19 +53,6 @@ export function checkAllFields<T extends Object>(state: IStateValues<T>): boolea
     });
 }
 
-export function getInputValue<T> (
-    field: keyof T, 
-    state: IStateValues<T>
-): string | DateValue {
-    const value = state[field as string].value;
-
-    if(value instanceof Date) {
-        return value as DateValue;
-    }
-
-    return value as string;
-}
-
 export function getOnChange<T>(
     dispatch: React.Dispatch<IDispatchArgs<T>>, 
     field: keyof T

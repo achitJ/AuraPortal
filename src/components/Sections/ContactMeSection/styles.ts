@@ -74,7 +74,7 @@ export const useStyles = createStyles((theme) => {
         },
 
         title: {
-            marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
+            marginBottom: `calc(${theme.spacing.xl} * 1)`,
             fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 
             [BREAKPOINT]: {

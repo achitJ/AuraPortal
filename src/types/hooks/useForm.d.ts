@@ -18,3 +18,17 @@ export interface IDispatchArgs<T> {
     error: string | null;
     type: "UPDATE" | "VALIDATE";
 };
+
+export type IUseFormReturnType<T> = {
+    getValues: () => T,
+    getInputProps: (field: keyof T) => {
+        value: T[keyof T],
+        error: string | null,
+        onChange: (e: React.ChangeEvent<unknown> | DateValue | undefined) => void
+    },
+    validateField: (field: keyof T) => void,
+    validateAll: () => void,
+    isValid: () => boolean,
+    resetField: (field: keyof T) => void,
+    resetAll: () => void
+}

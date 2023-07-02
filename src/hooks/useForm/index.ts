@@ -1,20 +1,19 @@
 import { DateValue } from "@mantine/dates";
 import { Reducer, useReducer } from "react";
-import { IStateValues, IFormArgs, IDispatchArgs } from "@/types/hooks/useForm";
+import { IStateValues, IFormArgs, IDispatchArgs, IUseFormReturnType } from "@/types/hooks/useForm";
 import { getReducer } from "./reducer";
 import { 
     getStateValues, 
     callAllFields, 
     getNextState, 
     checkAllFields, 
-    getInputValue, 
     getOnChange 
 } from "./utils";
 
 export default function useForm<T extends object>({ 
     initialValues,
     validate
-}: IFormArgs<T>) {
+}: IFormArgs<T>) : IUseFormReturnType<T> {
     const values: T = initialValues;    
     const reducer: Reducer<IStateValues<T>, IDispatchArgs<T>> = getReducer<T>();
     const stateValues: IStateValues<T> = getStateValues<T>(values);
@@ -56,7 +55,7 @@ export default function useForm<T extends object>({
     };
 
     function getInputProps(field: keyof T) {
-        const value: string | DateValue = getInputValue(field, state);
+        const value = state[field as string].value;
         const error: string | null = state[field as string].error;
 
         return {
@@ -86,5 +85,5 @@ export default function useForm<T extends object>({
         isValid,
         resetField,
         resetAll
-    };
+    } as IUseFormReturnType<T>;
 }
