@@ -1,3 +1,4 @@
+import { IContactItem } from "./misc";
 import { IService } from "./sanity";
 
 export interface INavButtonProps {
@@ -14,11 +15,9 @@ export interface IHomeProps {
 }
 
 export interface IContactIconProps {
-	icon: React.FC<any>;
-	title: React.ReactNode;
-	description: React.ReactNode;
+	contactItem: IContactItem;
 }
 
 interface IContactIconsListProps {
-    data?: IContactIconProps[];
+    data?: IContactItem[];
 }

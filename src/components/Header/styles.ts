@@ -6,6 +6,7 @@ export const useStyles = createStyles((theme) => ({
 		top: 0,
 		left: 0,
 		zIndex: 1,
+		borderBottom: "0.0625rem solid rgb(233, 236, 239)"
 	},
 
 	inner: {

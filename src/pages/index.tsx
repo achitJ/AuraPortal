@@ -1,4 +1,4 @@
-import CanvasConstellation from "@/components/CanvasConstellation"
+import CanvasConstellation from "@/components/Sections/HeroSection/CanvasConstellation"
 import Script from "next/script"
 import Head from "next/head"
 import HeroSection from "@/components/Sections/HeroSection"

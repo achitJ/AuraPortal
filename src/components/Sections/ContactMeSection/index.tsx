@@ -15,7 +15,7 @@ import React from 'react';
 import { IContactForm } from '@/types/misc';
 import useForm from '@/hooks/useForm';
 import { formMetadata, getHandler } from './utils'
-import { ContactIconsList } from '@/components/ContactIconList';
+import { ContactIconsList } from './IconList';
 
 
 
@@ -25,69 +25,67 @@ export default function GetInTouch() {
     const handleSubmit = getHandler(form);
 
     return (
-        <Container size="lg" mt={40}>
-            <Paper shadow="md" radius="lg" p='xl'>
-                <Title order={1} align="center" mb={20}>Get in touch with me.</Title>
-                <div className={classes.wrapper}>
-                    <div className={classes.contacts}>
-                        <Text fz="xl" fw={750} className={classes.title} c="#fff">
-                            Contact information
-                        </Text>
+        <Container size="md" mt={40}>
+            <Title order={1} align="center" mb={20}>Get in touch with me</Title>
+            <div className={classes.wrapper}>
+                <div className={classes.contacts}>
+                    <Text fz="xl" fw={750} className={classes.title} c="#fff">
+                        Contact information
+                    </Text>
 
-                        <ContactIconsList/>
-                    </div>
-
-                    <form className={classes.form} onSubmit={handleSubmit}>
-                        <div className={classes.fields}>
-                            <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-                                <TextInput 
-                                    label="Your Name" 
-                                    placeholder="Your name" 
-                                    name='name' 
-                                    {...form.getInputProps('name')}                                    
-                                />
-                                <DateTimePicker 
-                                    label="Your Birth Day and Time" 
-                                    placeholder="Your Birth Day and Time" 
-                                    name="dateTime"
-                                    clearable
-                                    {...form.getInputProps('dateTime')}
-                                />
-                            </SimpleGrid>
-
-                            <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-                                <TextInput 
-                                    label="Your Phone Number" 
-                                    placeholder="Your Phone Number" 
-                                    name='phone'
-                                    {...form.getInputProps('phone')}
-                                />
-                                <TextInput 
-                                    label="Your Email" 
-                                    placeholder="hello@xyz.com" 
-                                    name='email'
-                                    {...form.getInputProps('email')}
-                                />
-                            </SimpleGrid>
-
-                            <Textarea
-                                mt="md"
-                                label="Your Message"
-                                placeholder="Ask your question here"
-                                minRows={3}
-                                name='message'
-                                {...form.getInputProps('message')}
-                            />
-
-                            <Group position="right" mt="md">
-                                <Button type="submit" color='grape' className={classes.control}>
-                                    Send message
-                                </Button>
-                            </Group>
-                        </div>
-                    </form>
+                    <ContactIconsList/>
                 </div>
-            </Paper>
+
+                <form className={classes.form} onSubmit={handleSubmit}>
+                    <div className={classes.fields}>
+                        <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+                            <TextInput 
+                                label="Your Name" 
+                                placeholder="Your name" 
+                                name='name' 
+                                {...form.getInputProps('name')}                                    
+                            />
+                            <DateTimePicker 
+                                label="Your Birth Day and Time" 
+                                placeholder="Your Birth Day and Time" 
+                                name="dateTime"
+                                clearable
+                                {...form.getInputProps('dateTime')}
+                            />
+                        </SimpleGrid>
+
+                        <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+                            <TextInput 
+                                label="Your Phone Number" 
+                                placeholder="Your Phone Number" 
+                                name='phone'
+                                {...form.getInputProps('phone')}
+                            />
+                            <TextInput 
+                                label="Your Email" 
+                                placeholder="hello@xyz.com" 
+                                name='email'
+                                {...form.getInputProps('email')}
+                            />
+                        </SimpleGrid>
+
+                        <Textarea
+                            mt="md"
+                            label="Your Message"
+                            placeholder="Ask your question here"
+                            minRows={3}
+                            name='message'
+                            {...form.getInputProps('message')}
+                        />
+
+                        <Group position="right" mt="md">
+                            <Button type="submit" color='grape' className={classes.control}>
+                                Send message
+                            </Button>
+                        </Group>
+                    </div>
+                </form>
+            </div>
         </Container>
     );
 }

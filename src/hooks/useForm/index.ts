@@ -1,6 +1,6 @@
 import { DateValue } from "@mantine/dates";
 import { Reducer, useReducer } from "react";
-import { IStateValues, IFormArgs, IDispatchArgs, IUseFormReturnType } from "@/types/hooks/useForm";
+import { IStateValues, IFormArgs, IDispatchArgs, IUseFormReturnType } from "@/types/useForm";
 import { getReducer } from "./reducer";
 import { 
     getStateValues, 

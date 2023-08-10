@@ -1,4 +1,4 @@
-import { IStateValues, IFormArgs, IDispatchArgs } from "@/types/hooks/useForm";
+import { IStateValues, IFormArgs, IDispatchArgs } from "@/types/useForm";
 import { DateValue } from "@mantine/dates";
 import { Reducer } from "react";
 

@@ -16,8 +16,15 @@
     "incremental": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "typeRoots": ["./src/types/*"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/CanvasConstellation/canvas.js"],
+  "include": [
+    "next-env.d.ts", 
+    "**/*.ts", 
+    "**/*.tsx", 
+    "src/types/*.d.ts",
+    "src/components/Sections/HeroSection/CanvasConstellation/canvas.js"
+  ],
   "exclude": ["node_modules"]
 }

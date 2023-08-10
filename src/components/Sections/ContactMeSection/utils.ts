@@ -1,4 +1,4 @@
-import { IFormArgs, IUseFormReturnType } from "@/types/hooks/useForm";
+import { IFormArgs, IUseFormReturnType } from "@/types/useForm";
 import { IContactForm } from "@/types/misc";
 import { sendFormDataToTelegram } from '@/api/telegram';
 import { notifications } from '@mantine/notifications';

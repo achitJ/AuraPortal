@@ -12,9 +12,13 @@ export const useStyles = createStyles((theme) => ({
 		maxWidth: '90%',
 
 		[theme.fn.smallerThan('md')]: {
-			maxWidth: '100%',
+			maxWidth: "95vw",
 			gridTemplateColumns: '1fr',
 			gridTemplateRows: '1fr 1fr',
+			marginLeft: 0,
+			marginRight: 0,
+			paddingLeft: 0,
+			paddingRight: 0,
 		},
 	},
 
@@ -28,6 +32,7 @@ export const useStyles = createStyles((theme) => ({
 		[theme.fn.smallerThan('md')]: {
 			height: '100%',
 			justifyContent: 'end',
+			// paddingBottom: 0,
 		},
 	},
 

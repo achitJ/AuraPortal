@@ -20,6 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
               marginTop: 0,
               boxSizing: "border-box",
             },
+            a: {
+              textDecoration: "none",
+            },
             '.container-mt': {
               marginTop: "92px",
             },
