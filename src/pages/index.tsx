@@ -22,6 +22,7 @@ export default function Home({ services } : InferGetStaticPropsType<typeof getSt
   return (
     <>
       <Head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js" defer></script>
         <script src="/scripts/canvas.js" defer></script>
       </Head>
       <CanvasConstellation/>
