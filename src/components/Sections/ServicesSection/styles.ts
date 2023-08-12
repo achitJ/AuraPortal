@@ -6,6 +6,7 @@ export const useStyles = createStyles((theme) => ({
         flexWrap: "wrap",
         gap: rem(30),
         justifyContent: "center",
+        marginTop: rem(40),
 
         [theme.fn.smallerThan('xs')]: {
             flexDirection: 'column',

@@ -12,7 +12,7 @@ export default function Service({ title, description, imageURL, price } : IServi
 
     return (
         <>
-            <Card shadow="sm" padding="lg" radius="md" withBorder>
+            <Card shadow="sm" radius="md" withBorder>
                 <div className={classes.inner}>
                     <div className={classes.image}>
                         <Image src={imageURL} alt={title}/>

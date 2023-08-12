@@ -1,6 +1,9 @@
+import { Container } from "@mantine/core";
 
 export default function Gallery() {
   return (
-    <h1>Gallery</h1>
+    <Container size="xl">
+      <h1>Gallery</h1>
+    </Container>
   )
 }

@@ -26,7 +26,7 @@ export default function Home({ services } : InferGetStaticPropsType<typeof getSt
         <script src="/scripts/canvas.js" defer></script>
       </Head>
       <CanvasConstellation/>
-      <HeroSection/>
+      <HeroSection/> 
       <ContactMeSection/>
       <ServicesSection services={services}/>
     </>

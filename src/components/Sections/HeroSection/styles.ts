@@ -9,16 +9,15 @@ export const useStyles = createStyles((theme) => ({
 		height: '100vh',
 		alignItems: 'center',
 		justifyItems: 'center',
-		maxWidth: '90%',
 
 		[theme.fn.smallerThan('md')]: {
 			maxWidth: "95vw",
 			gridTemplateColumns: '1fr',
 			gridTemplateRows: '1fr 1fr',
-			marginLeft: 0,
-			marginRight: 0,
-			paddingLeft: 0,
-			paddingRight: 0,
+			// marginLeft: 0,
+			// marginRight: 0,
+			// paddingLeft: 0,
+			// paddingRight: 0,
 		},
 	},
 

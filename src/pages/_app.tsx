@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
         theme={{
           globalStyles: (theme) => ({
             body: {
-              marginTop: 0,
+              margin: 0,
               boxSizing: "border-box",
             },
             a: {

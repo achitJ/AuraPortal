@@ -11,7 +11,7 @@ export default function ServicesSection({ services } : IHomeProps) {
         <div id="services">
             <Container size="xl" mt={40}>
                 <Title order={1} align="center" mb={20}>Services Offered</Title>
-                <Container size="xl" className={classes.cards} mt={40}>
+                <div className={classes.cards}>
                     {services.map((service : IService) => {
                         return (
                             <Service 
@@ -23,7 +23,7 @@ export default function ServicesSection({ services } : IHomeProps) {
                             />
                         )
                     })} 
-                </Container>
+                </div>
             </Container>
         </div>
     )
