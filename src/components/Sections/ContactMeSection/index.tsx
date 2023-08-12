@@ -1,5 +1,4 @@
 import {
-    Paper,
     Text,
     TextInput,
     Textarea,

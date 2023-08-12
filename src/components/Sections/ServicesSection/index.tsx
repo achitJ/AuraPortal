@@ -9,7 +9,7 @@ export default function ServicesSection({ services } : IHomeProps) {
     
     return (
         <div id="services">
-            <Container size="lg" mt={40}>
+            <Container size="xl" mt={40}>
                 <Title order={1} align="center" mb={20}>Services Offered</Title>
                 <Container size="xl" className={classes.cards} mt={40}>
                     {services.map((service : IService) => {

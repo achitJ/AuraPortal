@@ -1,4 +1,4 @@
-import { IContactItem } from "./misc";
+import { IContactItem, IBlogShortened } from "./misc";
 import { IService } from "./sanity";
 
 export interface INavButtonProps {
@@ -20,4 +20,8 @@ export interface IContactIconProps {
 
 interface IContactIconsListProps {
     data?: IContactItem[];
+}
+
+interface IBlogSectionProps {
+    blogs: IBlogShortened[];
 }

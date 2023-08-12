@@ -4,3 +4,10 @@ export interface IService {
     description: string;
     imageURL: string;
 }
+
+export interface IBlogShortened {
+    title: string;
+    _id: string;
+    content: string;
+    imageURL: string;
+}

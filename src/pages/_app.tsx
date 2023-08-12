@@ -4,6 +4,7 @@ import { MantineProvider } from '@mantine/core';
 import BaseLayout from '@/components/Layouts/Base';
 import { Notifications } from '@mantine/notifications';
 import Head from 'next/head';
+import Script from 'next/script';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,6 +13,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Anamika Jyotish</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
+
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js" strategy="beforeInteractive" />
 
       <MantineProvider
         theme={{

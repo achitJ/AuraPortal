@@ -4,14 +4,10 @@ import {
     Button,
     Group,
     Text,
-    List,
-    ThemeIcon,
 } from "@mantine/core";
 import { useStyles } from "./styles";
 import heroAreaSvg from "../../../../public/images/hero-area.svg";
 import Image from "next/image";
-import { Ref, useEffect } from "react";
-import { useStore } from "@/utils/stores/store";
 
 
 export default function HeroSection() {
