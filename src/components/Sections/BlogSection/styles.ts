@@ -17,7 +17,7 @@ export const useStyles = createStyles((theme) => {
 
         content: {
             [BREAKPOINT]: {
-                display: 'none',
+                // display: 'none',
             },
         },
 

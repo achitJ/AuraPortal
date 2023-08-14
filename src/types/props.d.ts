@@ -1,5 +1,5 @@
 import { IContactItem, IBlogShortened } from "./misc";
-import { IService } from "./sanity";
+import { IBlog, IService } from "./sanity";
 
 export interface INavButtonProps {
     label: string;
@@ -23,5 +23,5 @@ interface IContactIconsListProps {
 }
 
 interface IBlogSectionProps {
-    blogs: IBlogShortened[];
+    blogs: IBlog[];
 }

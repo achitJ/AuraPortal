@@ -5,9 +5,9 @@ export interface IService {
     imageURL: string;
 }
 
-export interface IBlogShortened {
+export interface IBlog {
     title: string;
     _id: string;
     content: string;
-    imageURL: string;
+    imageURL: string | null;
 }

@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
             },
             a: {
               textDecoration: "none",
+              color: theme.colors.dark[9],
             },
             '.container-mt': {
               marginTop: "92px",
