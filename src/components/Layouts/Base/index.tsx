@@ -1,5 +1,6 @@
 import { Container } from "@mantine/core";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { IBaseLayoutProps } from "@/types/props";
 import useStyles from './styles';
 
@@ -9,8 +10,9 @@ export default function BaseLayout(props: IBaseLayoutProps) {
 
 	return (
 		<Container className={classes.masterContainer}>
-			<Header/>
+			<Header />
 			<main>{children}</main>
+			<Footer />
 		</Container>
 	);
 }
