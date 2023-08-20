@@ -1,9 +1,20 @@
-import { Container } from "@mantine/core";
+import { getAllImages } from "@/backend-services/sanity/gallery";
+import { IImage } from "@/types/sanity";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import ImageGallery from "@/components/Sections/GallerySection";
 
-export default function Gallery() {
+export const getServerSideProps: GetServerSideProps<{images: IImage[]}> = async () => {
+  const images = await getAllImages();
+
+  return {
+    props: {
+      images,
+    },
+  }
+}
+
+export default function Gallery({ images } : InferGetServerSidePropsType<typeof getServerSideProps>) {  
   return (
-    <Container size="xl">
-      <h1>Gallery</h1>
-    </Container>
+    <ImageGallery images={images}/>
   )
 }

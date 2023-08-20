@@ -1,6 +1,6 @@
 import { IBlogSectionProps } from "@/types/props";
 import { IBlog } from "@/types/sanity";
-import { Container, Stack } from "@mantine/core";
+import { Center, Container, Stack, Title } from "@mantine/core";
 import BlogCard from "./BlogCard";
 import { useMediaQuery } from "@mantine/hooks";
 
@@ -9,6 +9,9 @@ export default function BlogSection({ blogs }: IBlogSectionProps) {
 
     return (
         <Container size="md" mt={90}>
+            <Center>
+                <Title order={1} align="center">Blogs</Title>
+            </Center>
             <Stack spacing="xl">
                 {blogs.map((blog: IBlog) => (
                     <BlogCard blog={blog} key={blog._id} isPhone={isPhone}/>

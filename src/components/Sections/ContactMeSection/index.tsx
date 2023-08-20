@@ -15,6 +15,7 @@ import { IContactForm } from '@/types/misc';
 import useForm from '@/hooks/useForm';
 import { formMetadata, getHandler } from './utils'
 import { ContactIconsList } from './IconList';
+import { contactDetails } from '@/config';
 
 
 
@@ -32,7 +33,7 @@ export default function GetInTouch() {
                         Contact information
                     </Text>
 
-                    <ContactIconsList/>
+                    <ContactIconsList data={contactDetails}/>
                 </div>
 
                 <form className={classes.form} onSubmit={handleSubmit}>

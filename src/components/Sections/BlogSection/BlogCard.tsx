@@ -1,10 +1,10 @@
 import { IBlog } from "@/types/sanity";
 import { Card, Container, Divider, Flex, Stack, Text, Title } from "@mantine/core";
 import { IconShare } from "@tabler/icons-react";
-import Image from "next/image";
 import { useStyles } from "./styles";
 import { useEffect } from "react";
 import { notifications } from "@mantine/notifications";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function BlogCard({blog, isPhone}:{blog:IBlog, isPhone: boolean}) {

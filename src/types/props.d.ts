@@ -1,5 +1,5 @@
 import { IContactItem, IBlogShortened } from "./misc";
-import { IBlog, IService } from "./sanity";
+import { IBlog, IService, IImage } from "./sanity";
 
 export interface INavButtonProps {
     label: string;
@@ -18,10 +18,18 @@ export interface IContactIconProps {
 	contactItem: IContactItem;
 }
 
-interface IContactIconsListProps {
-    data?: IContactItem[];
+export interface IContactIconsListProps {
+    data: IContactItem[];
 }
 
-interface IBlogSectionProps {
+export interface IBlogSectionProps {
     blogs: IBlog[];
+}
+
+export interface IGallerySectionProps {
+    images: IImage[];
+}
+
+export interface IGalleryCardProps {
+    image: IImage;
 }

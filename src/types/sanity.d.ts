@@ -11,3 +11,9 @@ export interface IBlog {
     content: string;
     imageURL: string | null;
 }
+
+export interface IImage {
+    _id: string;
+    alt: string;
+    imageURL: string;
+}
